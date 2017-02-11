@@ -59,10 +59,6 @@ namespace stormpath_net_react_example
           {
             Uri = "/api/register"
           },
-        //   Reset = new WebResetRouteConfiguration()
-        //   {
-        //       Uri = "/api/reset"
-        //   },
           VerifyEmail = new WebVerifyEmailRouteConfiguration()
           {
             Uri = "/api/verify"
