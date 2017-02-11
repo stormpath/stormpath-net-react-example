@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "21705144f714943208e0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f2cd6dc988a3d0b25179"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -27697,6 +27697,14 @@ var _LoginPage = __webpack_require__(169);
 
 var _LoginPage2 = _interopRequireDefault(_LoginPage);
 
+var _ProfilePage = __webpack_require__(419);
+
+var _ProfilePage2 = _interopRequireDefault(_ProfilePage);
+
+var _RegisterPage = __webpack_require__(418);
+
+var _RegisterPage2 = _interopRequireDefault(_RegisterPage);
+
 var _HomePage = __webpack_require__(173);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
@@ -27728,12 +27736,12 @@ _reactStormpath2.default.init({
     _react2.default.createElement(_reactRouter.IndexRoute, { component: _HomePage2.default }),
     _react2.default.createElement(_reactRouter.Route, { path: '/contact', component: _ContactPage2.default }),
     _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _AboutPage2.default }),
-    _react2.default.createElement(_reactRouter.Route, { path: '/register', component: _reactStormpath.RegistrationPage }),
+    _react2.default.createElement(_reactRouter.Route, { path: '/register', component: _RegisterPage2.default }),
     _react2.default.createElement(_reactStormpath.LoginRoute, { path: '/login', component: _LoginPage2.default }),
     _react2.default.createElement(
       _reactStormpath.AuthenticatedRoute,
       null,
-      _react2.default.createElement(_reactStormpath.HomeRoute, { path: '/profile', component: _reactStormpath.ProfilePage })
+      _react2.default.createElement(_reactStormpath.HomeRoute, { path: '/profile', component: _ProfilePage2.default })
     )
   )
 ), document.getElementById('app'));
@@ -28449,15 +28457,23 @@ exports.default = Layout;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(module) {
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
-var _react = __webpack_require__(5);
+var _react2 = __webpack_require__(5);
 
-var _react2 = _interopRequireDefault(_react);
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformHmr3 = __webpack_require__(43);
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp;
 
 var _reactRouter = __webpack_require__(159);
 
@@ -28465,109 +28481,167 @@ var _reactStormpath = __webpack_require__(92);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Navigation = function Navigation(props) {
-    return _react2.default.createElement(
-        'div',
-        { className: 'navbar navbar-inverse navbar-fixed-top' },
-        _react2.default.createElement(
-            'div',
-            { className: 'container' },
-            _react2.default.createElement(
-                'div',
-                { className: 'navbar-header' },
-                _react2.default.createElement(
-                    'button',
-                    { type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '.navbar-collapse' },
-                    _react2.default.createElement(
-                        'span',
-                        { className: 'sr-only' },
-                        'Toggle navigation'
-                    ),
-                    _react2.default.createElement('span', { className: 'icon-bar' }),
-                    _react2.default.createElement('span', { className: 'icon-bar' }),
-                    _react2.default.createElement('span', { className: 'icon-bar' })
-                ),
-                _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/', className: 'navbar-brand' },
-                    'Sample, Inc.'
-                )
-            ),
-            _react2.default.createElement(
-                'div',
-                { className: 'navbar-collapse collapse' },
-                _react2.default.createElement(
-                    'ul',
-                    { className: 'nav navbar-nav' },
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                            _reactRouter.Link,
-                            { to: '/' },
-                            'Home'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                            _reactRouter.Link,
-                            { to: '/about' },
-                            'About'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                            _reactRouter.Link,
-                            { to: '/contact' },
-                            'Contact'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _reactStormpath.NotAuthenticated,
-                        null,
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactStormpath.LoginLink,
-                                null,
-                                'Login'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _reactStormpath.Authenticated,
-                        null,
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactRouter.Link,
-                                { to: '/profile' },
-                                'My Profile'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactStormpath.LogoutLink,
-                                null,
-                                'Logout'
-                            )
-                        )
-                    )
-                )
-            )
-        )
-    );
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Navigation: {
+    displayName: 'Navigation'
+  }
 };
 
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/leebrandt/@Source/@Samples/stormpath-net-react-example/wwwroot/js/components/common/Navigation.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmr2(Component, id);
+  };
+}
+
+var Navigation = _wrapComponent('Navigation')((_temp = _class = function (_React$Component) {
+  _inherits(Navigation, _React$Component);
+
+  function Navigation() {
+    _classCallCheck(this, Navigation);
+
+    return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).apply(this, arguments));
+  }
+
+  _createClass(Navigation, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        'div',
+        { className: 'navbar navbar-inverse navbar-fixed-top' },
+        _react3.default.createElement(
+          'div',
+          { className: 'container' },
+          _react3.default.createElement(
+            'div',
+            { className: 'navbar-header' },
+            _react3.default.createElement(
+              'button',
+              { type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '.navbar-collapse' },
+              _react3.default.createElement(
+                'span',
+                { className: 'sr-only' },
+                'Toggle navigation'
+              ),
+              _react3.default.createElement('span', { className: 'icon-bar' }),
+              _react3.default.createElement('span', { className: 'icon-bar' }),
+              _react3.default.createElement('span', { className: 'icon-bar' })
+            ),
+            _react3.default.createElement(
+              _reactRouter.Link,
+              { to: '/', className: 'navbar-brand' },
+              'Sample, Inc.'
+            )
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'navbar-collapse collapse' },
+            _react3.default.createElement(
+              'ul',
+              { className: 'nav navbar-nav' },
+              _react3.default.createElement(
+                'li',
+                null,
+                _react3.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/', activeClassName: 'active' },
+                  'Home'
+                )
+              ),
+              _react3.default.createElement(
+                'li',
+                null,
+                _react3.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/about', activeClassName: 'active' },
+                  'About'
+                )
+              ),
+              _react3.default.createElement(
+                'li',
+                null,
+                _react3.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/contact', activeClassName: 'active' },
+                  'Contact'
+                )
+              )
+            ),
+            _react3.default.createElement(
+              'ul',
+              { className: 'nav navbar-nav navbar-right' },
+              _react3.default.createElement(
+                _reactStormpath.NotAuthenticated,
+                null,
+                _react3.default.createElement(
+                  'li',
+                  null,
+                  _react3.default.createElement(_reactStormpath.LoginLink, { activeClassName: 'active' })
+                )
+              ),
+              _react3.default.createElement(
+                _reactStormpath.Authenticated,
+                null,
+                _react3.default.createElement(
+                  'li',
+                  null,
+                  _react3.default.createElement(_reactStormpath.LogoutLink, null)
+                )
+              ),
+              _react3.default.createElement(
+                _reactStormpath.NotAuthenticated,
+                null,
+                _react3.default.createElement(
+                  'li',
+                  null,
+                  _react3.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/register', activeClassName: 'active' },
+                    'Create Account'
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                _reactStormpath.Authenticated,
+                null,
+                _react3.default.createElement(
+                  'li',
+                  null,
+                  _react3.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/profile', activeClassName: 'active' },
+                    'Hello ',
+                    this.context.user ? ' ' + this.context.user.givenName : null,
+                    '!'
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Navigation;
+}(_react3.default.Component), _class.contextTypes = {
+  user: _react3.default.PropTypes.object
+}, _temp));
+
 exports.default = Navigation;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
 
 /***/ }),
 /* 172 */
@@ -50459,6 +50533,186 @@ module.exports = function(hash, moduleMap, options) {
 __webpack_require__(165);
 module.exports = __webpack_require__(164);
 
+
+/***/ }),
+/* 418 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = __webpack_require__(5);
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformHmr3 = __webpack_require__(43);
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactStormpath = __webpack_require__(92);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  RegisterPage: {
+    displayName: 'RegisterPage'
+  }
+};
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/leebrandt/@Source/@Samples/stormpath-net-react-example/wwwroot/js/components/auth/RegisterPage.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmr2(Component, id);
+  };
+}
+
+var RegisterPage = _wrapComponent('RegisterPage')(function (_React$Component) {
+  _inherits(RegisterPage, _React$Component);
+
+  function RegisterPage() {
+    _classCallCheck(this, RegisterPage);
+
+    return _possibleConstructorReturn(this, (RegisterPage.__proto__ || Object.getPrototypeOf(RegisterPage)).apply(this, arguments));
+  }
+
+  _createClass(RegisterPage, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        'div',
+        { className: 'container' },
+        _react3.default.createElement(
+          'div',
+          { className: 'row' },
+          _react3.default.createElement(
+            'div',
+            { className: 'col-xs-12' },
+            _react3.default.createElement(
+              'h3',
+              null,
+              'Register'
+            ),
+            _react3.default.createElement('hr', null)
+          )
+        ),
+        _react3.default.createElement(_reactStormpath.RegistrationForm, null)
+      );
+    }
+  }]);
+
+  return RegisterPage;
+}(_react3.default.Component));
+
+exports.default = RegisterPage;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
+
+/***/ }),
+/* 419 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = __webpack_require__(5);
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformHmr3 = __webpack_require__(43);
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactStormpath = __webpack_require__(92);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  ProfilePage: {
+    displayName: 'ProfilePage'
+  }
+};
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/leebrandt/@Source/@Samples/stormpath-net-react-example/wwwroot/js/components/auth/ProfilePage.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmr2(Component, id);
+  };
+}
+
+var ProfilePage = _wrapComponent('ProfilePage')(function (_React$Component) {
+  _inherits(ProfilePage, _React$Component);
+
+  function ProfilePage() {
+    _classCallCheck(this, ProfilePage);
+
+    return _possibleConstructorReturn(this, (ProfilePage.__proto__ || Object.getPrototypeOf(ProfilePage)).apply(this, arguments));
+  }
+
+  _createClass(ProfilePage, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        'div',
+        { className: 'container' },
+        _react3.default.createElement(
+          'div',
+          { className: 'row' },
+          _react3.default.createElement(
+            'div',
+            { className: 'col-xs-12' },
+            _react3.default.createElement(
+              'h3',
+              null,
+              'My Profile'
+            ),
+            _react3.default.createElement('hr', null)
+          )
+        ),
+        _react3.default.createElement(_reactStormpath.UserProfileForm, null)
+      );
+    }
+  }]);
+
+  return ProfilePage;
+}(_react3.default.Component));
+
+exports.default = ProfilePage;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
 
 /***/ })
 /******/ ]);
